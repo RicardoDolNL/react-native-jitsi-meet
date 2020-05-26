@@ -358,11 +358,12 @@ import android.support.annotation.Nullable; // <--- Add this line if not already
 
 ### Side-note
 
-If your app already includes `react-native-locale-detector` or `react-native-vector-icons`, you must exclude them from the `react-native-jitsi-meet` project implementation with the following code (even if you're app uses autolinking with RN > 0.60):
+If your app already includes `react-native-locale-detector`, `react-native-vector-icons` or `react-native-svg`, you must exclude them from the `react-native-jitsi-meet` project implementation with the following code (even if you're app uses autolinking with RN > 0.60):
 
 ```
     implementation(project(':react-native-jitsi-meet')) {
       exclude group: 'com.facebook.react',module:'react-native-locale-detector'
       exclude group: 'com.facebook.react',module:'react-native-vector-icons'
+      exclude group: 'com.facebook.react',module:'react-native-svg'
     }
 ```

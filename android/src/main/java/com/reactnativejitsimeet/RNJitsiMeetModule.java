@@ -41,22 +41,29 @@ public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
                     if (userInfo != null) {
                         if (userInfo.hasKey("displayName")) {
                             _userInfo.setDisplayName(userInfo.getString("displayName"));
-                          }
-                          if (userInfo.hasKey("email")) {
+                        }
+                        if (userInfo.hasKey("email")) {
                             _userInfo.setEmail(userInfo.getString("email"));
-                          }
-                          if (userInfo.hasKey("avatar")) {
+                        }
+                        if (userInfo.hasKey("avatar")) {
                             String avatarURL = userInfo.getString("avatar");
                             try {
                                 _userInfo.setAvatar(new URL(avatarURL));
                             } catch (MalformedURLException e) {
                             }
-                          }
+                        }
                     }
                     RNJitsiMeetConferenceOptions options = new RNJitsiMeetConferenceOptions.Builder()
                             .setRoom(url)
                             .setAudioOnly(false)
                             .setUserInfo(_userInfo)
+                            .setFeatureFlag("add-people.enabled", false)
+                            .setFeatureFlag("chat.enabled", false)
+                            .setFeatureFlag("live-streaming.enabled", false)
+                            .setFeatureFlag("meeting-name.enabled", false)
+                            .setFeatureFlag("meeting-password.enabled", false)
+                            .setFeatureFlag("recording.enabled", false)
+                            .setFeatureFlag("invite.enabled", false)
                             .build();
                     mJitsiMeetViewReference.getJitsiMeetView().join(options);
                 }
@@ -74,17 +81,17 @@ public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
                     if (userInfo != null) {
                         if (userInfo.hasKey("displayName")) {
                             _userInfo.setDisplayName(userInfo.getString("displayName"));
-                          }
-                          if (userInfo.hasKey("email")) {
+                        }
+                        if (userInfo.hasKey("email")) {
                             _userInfo.setEmail(userInfo.getString("email"));
-                          }
-                          if (userInfo.hasKey("avatar")) {
+                        }
+                        if (userInfo.hasKey("avatar")) {
                             String avatarURL = userInfo.getString("avatar");
                             try {
                                 _userInfo.setAvatar(new URL(avatarURL));
                             } catch (MalformedURLException e) {
                             }
-                          }
+                        }
                     }
                     RNJitsiMeetConferenceOptions options = new RNJitsiMeetConferenceOptions.Builder()
                             .setRoom(url)
