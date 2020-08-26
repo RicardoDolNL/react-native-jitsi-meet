@@ -49,6 +49,7 @@ RCT_EXPORT_METHOD(call:(NSString *)urlString userInfo:(NSDictionary *)userInfo)
             [builder setFeatureFlag:@"live-streaming.enabled" withBoolean:NO];
             [builder setFeatureFlag:@"meeting-password.enabled" withBoolean:NO];
             [builder setFeatureFlag:@"invite.enabled" withBoolean:NO];
+            [builder setFeatureFlag:@"meeting-name.enabled" withBoolean:NO];
         }];
         [jitsiMeetView join:options];
     });
